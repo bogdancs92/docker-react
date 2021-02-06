@@ -1,0 +1,10 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t bog754/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true bog754/docker-react npm run test -- --coverage
