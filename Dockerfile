@@ -6,7 +6,8 @@ COPY . .
 RUN npm run build
 
 FROM nginx
-WORKDIR '/app'
+EXPOSE 80
+#WORKDIR '/app'
 COPY --from=0 /app/build /usr/share/nginx/html
 
 
